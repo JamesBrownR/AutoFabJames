@@ -1,29 +1,4 @@
-// Toggle functions for more content
-        function toggleGallery() {
-            const extraGallery = document.getElementById('extra-gallery');
-            const button = event.target;
-            
-            if (extraGallery.classList.contains('show')) {
-                extraGallery.classList.remove('show');
-                button.textContent = 'Show More Photos';
-            } else {
-                extraGallery.classList.add('show');
-                button.textContent = 'Show Less Photos';
-            }
-        }
-
-        function toggleReviews() {
-            const extraReviews = document.getElementById('extra-reviews');
-            const button = event.target;
-            
-            if (extraReviews.classList.contains('show')) {
-                extraReviews.classList.remove('show');
-                button.textContent = 'Show More Reviews';
-            } else {
-                extraReviews.classList.add('show');
-                button.textContent = 'Show Less Reviews';
-            }
-        }        /* Responsive Design */<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -107,7 +82,7 @@
             align-items: center;
             text-align: center;
             color: white;
-            margin-top: 80px;
+            margin-top: 0;
         }
 
         .hero-content h1 {
@@ -402,6 +377,8 @@
             from { opacity: 0; }
             to { opacity: 1; }
         }
+
+        /* Responsive Design */
         @media (max-width: 768px) {
             .header-content {
                 flex-direction: column;
@@ -583,23 +560,28 @@
                     <div class="review-author">Aiyana Noelani</div>
                     <div class="review-date">1 year ago</div>
                 </div>
-                <div class="review-card">
-                    <div class="review-stars">★★★★★</div>
-                    <div class="review-text">"Highly recommend!! We've had multiple excellent experiences with two of our vehicles, a Jeep and an Altima. We haven't found a reliable shop to diagnose and fix minor repairs until now, and James has gone above and beyond. He is transparent, easy to talk to, and very fair on pricing."</div>
-                    <div class="review-author">K Fullen</div>
-                    <div class="review-date">2 years ago</div>
-                </div>
-                <div class="review-card">
-                    <div class="review-stars">★★★★★</div>
-                    <div class="review-text">"Absolutely fantastic. They worked on my work vehicle, communication is top notch throughout the entire process and pricing is better than reasonable!! Highly recommend."</div>
-                    <div class="review-author">Blake Griffin</div>
-                    <div class="review-date">1 year ago</div>
-                </div>
-                <div class="review-card">
-                    <div class="review-stars">★★★★★</div>
-                    <div class="review-text">"Never going to another mechanic, this is the best place! I will happily drive clear across town to have my vehicles worked on here. The owner is SKILLED and HONEST! Hard combo to come by. The pricing is more than fair and worth every penny!"</div>
-                    <div class="review-author">Travis Thornton</div>
-                    <div class="review-date">2 years ago</div>
+            </div>
+            <button class="more-button" onclick="toggleReviews()">Show More Reviews</button>
+            <div class="extra-content" id="extra-reviews">
+                <div class="reviews-grid">
+                    <div class="review-card">
+                        <div class="review-stars">★★★★★</div>
+                        <div class="review-text">"Highly recommend!! We've had multiple excellent experiences with two of our vehicles, a Jeep and an Altima. We haven't found a reliable shop to diagnose and fix minor repairs until now, and James has gone above and beyond. He is transparent, easy to talk to, and very fair on pricing."</div>
+                        <div class="review-author">K Fullen</div>
+                        <div class="review-date">2 years ago</div>
+                    </div>
+                    <div class="review-card">
+                        <div class="review-stars">★★★★★</div>
+                        <div class="review-text">"Absolutely fantastic. They worked on my work vehicle, communication is top notch throughout the entire process and pricing is better than reasonable!! Highly recommend."</div>
+                        <div class="review-author">Blake Griffin</div>
+                        <div class="review-date">1 year ago</div>
+                    </div>
+                    <div class="review-card">
+                        <div class="review-stars">★★★★★</div>
+                        <div class="review-text">"Never going to another mechanic, this is the best place! I will happily drive clear across town to have my vehicles worked on here. The owner is SKILLED and HONEST! Hard combo to come by. The pricing is more than fair and worth every penny!"</div>
+                        <div class="review-author">Travis Thornton</div>
+                        <div class="review-date">2 years ago</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -683,6 +665,33 @@
     </footer>
 
     <script>
+        // Toggle functions for more content
+        function toggleGallery() {
+            const extraGallery = document.getElementById('extra-gallery');
+            const button = document.querySelector('.gallery .more-button');
+            
+            if (extraGallery.classList.contains('show')) {
+                extraGallery.classList.remove('show');
+                button.textContent = 'Show More Photos';
+            } else {
+                extraGallery.classList.add('show');
+                button.textContent = 'Show Less Photos';
+            }
+        }
+
+        function toggleReviews() {
+            const extraReviews = document.getElementById('extra-reviews');
+            const button = document.querySelector('.reviews .more-button');
+            
+            if (extraReviews.classList.contains('show')) {
+                extraReviews.classList.remove('show');
+                button.textContent = 'Show More Reviews';
+            } else {
+                extraReviews.classList.add('show');
+                button.textContent = 'Show Less Reviews';
+            }
+        }
+
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
